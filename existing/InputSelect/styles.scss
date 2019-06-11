@@ -1,0 +1,86 @@
+.input-select-container {
+  position: relative;
+
+  &.disabled {
+    opacity: 0.3;
+
+    .input-select {
+      cursor: not-allowed;
+    }
+  }
+
+  .input-label {
+    width: 100%;
+    height: 20px;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.54;
+    letter-spacing: 0.4px;
+    color: #727273;
+    margin-bottom: 4px;
+  }
+
+  .input-select {
+    height: 38px;
+    border: 1px solid #dee0e0;
+    border-radius: 2px;
+    position: relative;
+    display: flex;
+
+    .selected-value {
+      display: inline-block;
+      padding: 10px 12px;
+      height: 16px;
+      font-size: 14px;
+      font-weight: normal;
+      color: #3f4040;
+      flex: 1;
+    }
+
+    .arrow-down {
+      display: inline-block;
+      padding-top: 3px;
+      width: 3px;
+      margin: 15px 18px;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #76787e;
+    }
+  }
+
+  .dropdown-wrapper {
+    position: absolute;
+    top: 62px;
+    left: 0px;
+    width: 100%;
+
+    .dropdown {
+      width: 100%;
+      z-index: 666;
+      background-color: #fff;
+      border-radius: 4px;
+      padding: 8px 0px;
+      box-shadow: 0 4px 16px 0 rgba(45, 46, 46, 0.08), 0 1px 4px 0 rgba(45, 46, 46, 0.2);
+
+      .element {
+        padding: 0px 12px;
+        width: 100%;
+        height: 38px;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 2.71;
+        color: #585959;
+        cursor: default;
+
+        &:hover {
+          background-color: #f3f3f4;
+        }
+
+        &.active {
+          background-color: #f7f7f7;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.input-checkbox-group-container {
+  .group-label {
+    height: 28px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 2;
+    color: #727273;
+  }
+
+  .input-checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+
+    .input-checkbox-container {
+      width: 50%;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  }
+
+  &.disabled {
+    .group-label {
+      opacity: 0.3;
+    }
+  }
+}

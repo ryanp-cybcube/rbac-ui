@@ -1,0 +1,19 @@
+.users-table-container {
+  .table-opts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .filter-menu-container {
+      margin-left: 40px;
+    }
+
+    // .add-button {
+    //   margin-left: auto;
+    // }
+  }
+
+  .table-container {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,135 @@
+.table-container {
+  .table {
+    min-width: 1120px;
+    width: 100%;
+    height: 552px;
+    background-color: #ffffff;
+    opacity: 0.95;
+    margin-bottom: 0px;
+
+    &.dark {
+      thead {
+        background-color: #293033;
+        color: #ffffff;
+      }
+    }
+
+    &.light {
+      thead {
+        background-color: #f2f2f2;
+        color: #333333;
+      }
+    }
+
+    thead,
+    tbody tr {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    thead {
+      tr {
+        height: 48px;
+
+        th {
+          height: 48px;
+          font-size: 14px;
+          font-weight: 500;
+          font-style: normal;
+          font-stretch: normal;
+          // line-height: 1.71;
+          letter-spacing: normal;
+          padding-left: 24px;
+          border: none;
+
+          &.align-right {
+            text-align: right;
+          }
+
+          .header-button {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            padding: 0;
+
+            .header-label {
+              height: 20px;
+              line-height: 20px;
+              margin-right: 8px;
+              float: left;
+            }
+
+            .sort-icons {
+              display: none;
+
+              &.active {
+                display: flex;
+                flex-direction: column;
+                height: 20px;
+                font-size: 10px;
+                float: right;
+              }
+
+              &.asc {
+                .glyphicon-triangle-bottom {
+                  color: #aaa;
+                }
+              }
+
+              &.dsc {
+                .glyphicon-triangle-top {
+                  color: #aaa;
+                }
+              }
+            }
+
+            &.unsortable {
+              pointer-events: none;
+              cursor: default;
+            }
+          }
+        }
+      }
+    }
+
+    tbody {
+      display: block;
+      max-height: 504px;
+      overflow-y: scroll;
+
+      tr {
+        height: 56px;
+
+        &:nth-child(even) {
+          background-color: #fafafa;
+        }
+
+        &:nth-child(odd) {
+          background-color: #ffffff;
+        }
+
+        td {
+          color: #525252;
+          font-size: 14px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.71;
+          letter-spacing: normal;
+          border: none;
+          padding: 15px 24px;
+
+          &.align-right {
+            text-align: right;
+            font-weight: bold;
+          }
+
+          &.email {
+            color: #0b74a3;
+          }
+        }
+      }
+    }
+  }
+}

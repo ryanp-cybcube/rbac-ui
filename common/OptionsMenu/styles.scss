@@ -1,0 +1,73 @@
+.options-menu-container {
+  display: inline-block;
+  background-color: transparent;
+
+  .options-menu-button {
+    background-color: transparent;
+    padding: 0;
+    cursor: default;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
+      outline: none;
+      cursor: default;
+
+      .glyphicon {
+        color: #4a90e2;
+        cursor: pointer;
+      }
+    }
+
+    .glyphicon {
+      top: 0;
+      left: 0;
+      line-height: normal;
+      background-color: transparent;
+      color: #7a7a7a;
+      font-size: 14px;
+    }
+  }
+
+  .options-menu {
+    position: absolute;
+    width: 180px;
+    height: auto;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px 0 rgba(45, 46, 46, 0.12),
+      0 1px 4px 0 rgba(45, 46, 46, 0.2);
+    border: none;
+    outline: none;
+    // padding: 0;
+
+    .option {
+      width: 100%;
+      height: 38px;
+      background-color: transparent;
+      color: #525252;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      letter-spacing: normal;
+      line-height: 2.71;
+      border: none;
+      text-align: left;
+      padding-left: 16px;
+
+      &:hover {
+        background-color: #f3f3f4;
+        cursor: pointer;
+      }
+
+      &:focus {
+        background-color: transparent;
+        border-color: transparent;
+        box-shadow: none;
+        outline: none;
+      }
+    }
+  }
+}

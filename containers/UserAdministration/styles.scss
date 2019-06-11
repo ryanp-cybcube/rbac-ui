@@ -1,0 +1,53 @@
+.ua-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .ua-header {
+    min-width: 1200px;
+    width: auto;
+    height: 80px;
+    line-height: 80px;
+    background-color: #ffffff;
+    color: #383838;
+    font-size: 30px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05), 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+    padding-left: 50px;
+  }
+
+  .ua-content {
+    flex: 1;
+    padding: 50px;
+
+    .ua-opts {
+      min-width: 1120px;
+      margin-top: 40px;
+
+      .add-button {
+        float: right;
+      }
+    }
+  }
+
+  .ua-footer {
+    min-width: 1200px;
+    width: auto;
+    height: 55px;
+    line-height: 55px;
+    background-color: #f8f8f8;
+    color: #777777;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+    border-top: 1px solid #e2e2e2;
+  }
+}
