@@ -15,7 +15,10 @@ class Button extends Component {
     const {classNames, name, onClick} = this.props;
 
     return (
-      <button className={classnames('base-button', classNames)} onClick={onClick}>
+      <button
+        className={classnames('base-button', classNames)}
+        onClick={onClick}
+      >
         {name}
       </button>
     );

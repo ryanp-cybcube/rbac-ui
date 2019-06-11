@@ -136,18 +136,6 @@ class Table extends Component {
           </thead>
           <tbody>
             {this.props.populateTableData(tableData)}
-            {/* {tableData.map((data, i) => (
-              <tr key={i}>
-                {Object.keys(data).map((key, j) => (
-                  <td key={j} className={key}>
-                    {Array.isArray(data[key]) && data[key].length > 1
-                      ? data[key].sort().join(', ')
-                      : data[key]}
-                  </td>
-                ))}
-                <td className="align-right">{this.props.options}</td>
-              </tr>
-            ))} */}
           </tbody>
         </table>
       </div>

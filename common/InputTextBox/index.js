@@ -13,7 +13,7 @@ class InputTextBox extends Component {
   }
 
   render() {
-    const {classNames, label, onChange, placeholder} = this.props;
+    const {classNames, label, onChange, placeholder, value} = this.props;
 
     return (
       <div className="input-textbox-container">
@@ -23,6 +23,7 @@ class InputTextBox extends Component {
           className={classnames('input-textbox', classNames)}
           onChange={onChange}
           placeholder={placeholder}
+          value={value}
         />
       </div>
     );
@@ -33,7 +34,8 @@ InputTextBox.propTypes = {
   classNames: PropTypes.array,
   label: PropTypes.string,
   onChange: PropTypes.func,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  value: PropTypes.string
 };
 
 export default InputTextBox;

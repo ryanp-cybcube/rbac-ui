@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Button, Modal} from 'reactstrap';
+import {Modal} from 'reactstrap';
 
+import Button from '../../common/Button';
 import InputCheckbox from '../../existing/InputCheckbox';
 import InputTextBox from '../../common/InputTextBox';
 
@@ -40,7 +41,10 @@ class UserModal extends Component {
   }
 
   handleOnAddUser = () => {
-    console.log(this.state.roles);
+    console.log('First Name:', this.state.firstName);
+    console.log('Last Name:', this.state.lastName);
+    console.log('Email Address:', this.state.emailAddress);
+    console.log('Roles', this.state.roles);
   };
 
   handleOnCheckboxClick = type => () => {
@@ -57,8 +61,20 @@ class UserModal extends Component {
     });
   };
 
+  handleOnInputChange = event => {
+    console.log(event.target);
+  };
+
+  handleOnSaveUser = () => {
+    console.log('First Name:', this.state.firstName);
+    console.log('Last Name:', this.state.lastName);
+    console.log('Email Address:', this.state.emailAddress);
+    console.log('Roles', this.state.roles);
+  };
+
   render() {
-    const {toggleModal, type} = this.props;
+    const {firstName, lastName, emailAddress, roles} = this.state,
+      {toggleModal, type} = this.props;
 
     return (
       <Modal
@@ -77,17 +93,32 @@ class UserModal extends Component {
           <div className="row-title">User Info</div>
           <div className="row">
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-              <InputTextBox label="First Name" placeholder="Enter first name" />
+              <InputTextBox
+                id="firstNameInput"
+                label="First Name"
+                onChange={this.handleOnInputChange}
+                placeholder="Enter first name"
+                value={firstName}
+              />
             </div>
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-              <InputTextBox label="Last Name" placeholder="Enter last name" />
+              <InputTextBox
+                id="lastNameInput"
+                label="Last Name"
+                onChange={this.handleOnInputChange}
+                placeholder="Enter last name"
+                value={lastName}
+              />
             </div>
           </div>
           <div className="row">
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
               <InputTextBox
+                id="emailAddressInput"
                 label="Email Address"
+                onChange={this.handleOnInputChange}
                 placeholder="Enter email address"
+                value={emailAddress}
               />
             </div>
           </div>
@@ -107,12 +138,18 @@ class UserModal extends Component {
           </div>
         </div>
         <div className="modal-footer">
-          <Button className="secondary-btn" onClick={toggleModal}>
-            Cancel
-          </Button>
-          <Button className="primary-btn" onClick={this.handleOnAddUser}>
-            Add
-          </Button>
+          <Button
+            classNames={['secondary-btn']}
+            name={'Cancel'}
+            onClick={toggleModal}
+          />
+          <Button
+            classNames={['primary-btn']}
+            name={type === 'add' ? 'Add' : 'Save'}
+            onClick={
+              type === 'add' ? this.handleOnAddUser : this.handleOnSaveUser
+            }
+          />
         </div>
       </Modal>
     );

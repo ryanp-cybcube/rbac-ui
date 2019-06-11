@@ -27,12 +27,12 @@ class UsersTable extends Component {
   }
 
   componentDidMount() {
-    // setTimeout(() => {
+    setTimeout(() => {
     this.setState({
       roles: this.props.roles,
       users: this.props.data
     });
-    // }, 1000);
+    }, 1000);
   }
 
   componentDidUpdate(prevProps, prevState) {
