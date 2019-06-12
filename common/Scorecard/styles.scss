@@ -1,0 +1,42 @@
+.score-card {
+  display: flex;
+  flex-direction: row;
+  min-width: 1120px;
+  width: auto;
+  height: 92px;
+  background-color: #fafafa;
+  padding: 24px 36px;
+
+  .card {
+    &:nth-child(2n + 1) {
+      margin-right: 40px;
+    }
+
+    &:nth-child(2n):not(:last-child) {
+      margin-right: 110px;
+    }
+
+    .key {
+      width: auto;
+      color: #7a7a7a;
+      font-size: 13px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.38;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .value {
+      color: #2a5a70;
+      font-size: 18px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.11;
+      letter-spacing: normal;
+    }
+  }
+}

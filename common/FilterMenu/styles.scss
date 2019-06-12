@@ -25,18 +25,22 @@
     cursor: default;
 
     &:hover,
-    &:focus {
+    &.open {
       background-color: #00a9e0;
       color: #ffffff;
       border-color: transparent;
-      box-shadow: none;
-      outline: none;
-      cursor: pointer;
 
       .glyphicon {
         background-color: #00a9e0;
         color: #ffffff;
       }
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      outline: none;
+      cursor: pointer;
     }
 
     .glyphicon {

@@ -15,5 +15,17 @@
 
   .table-container {
     margin-top: 20px;
+
+    .highlight {
+      color: #0b74a3;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.71;
+      letter-spacing: normal;
+      margin-left: 15px;
+      cursor: pointer;
+    }
   }
 }

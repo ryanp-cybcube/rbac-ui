@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Dropdown, DropdownToggle, DropdownMenu} from 'reactstrap';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import InputCheckbox from '../../existing/InputCheckbox';
 
@@ -98,7 +99,11 @@ class FilterMenu extends Component {
         toggle={this.toggle}
       >
         <div className="filter-label">{name}</div>
-        <DropdownToggle className="filter-menu-button">
+        <DropdownToggle
+          className={classnames('filter-menu-button', {
+            open: this.state.dropdownOpen
+          })}
+        >
           <i className="glyphicon glyphicon-menu-down" />
         </DropdownToggle>
         <DropdownMenu className="filter-menu">

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import './styles.scss';
 
@@ -29,7 +30,11 @@ class OptionsMenu extends Component {
         isOpen={this.state.dropdownOpen}
         toggle={this.toggle}
       >
-        <DropdownToggle className="options-menu-button">
+        <DropdownToggle
+          className={classnames('options-menu-button', {
+            open: this.state.dropdownOpen
+          })}
+        >
           <i className="glyphicon glyphicon-option-vertical" />
         </DropdownToggle>
         <DropdownMenu className="options-menu" right>

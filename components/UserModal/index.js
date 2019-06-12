@@ -12,8 +12,9 @@ class UserModal extends Component {
   constructor(props) {
     super(props);
 
-    this.handleOnAddUser = this.handleOnAddUser.bind(this);
     this.handleOnCheckboxClick = this.handleOnCheckboxClick.bind(this);
+    this.handleOnInputChange = this.handleOnInputChange.bind(this);
+    this.handleOnSubmit = this.handleOnSubmit.bind(this);
 
     this.state = {
       firstName: '',
@@ -24,27 +25,39 @@ class UserModal extends Component {
   }
 
   componentDidMount() {
-    const {type} = this.props;
+    const {type, user} = this.props;
 
     if (type === 'edit') {
+      roles.forEach(role => {
+        if (user.roles.includes(role.type)) {
+          role.checked = true;
+        } else {
+          role.checked = false;
+        }
+      });
+
       this.setState({
-        firstName: 'firstName',
-        lastName: 'lastName',
-        emailAddress: 'emailAddress',
+        firstName: user.user_name.split(' ')[0],
+        lastName: user.user_name.split(' ')[
+          user.user_name.split(' ').length - 1
+        ],
+        emailAddress: user.email,
         roles: roles
       });
     } else {
+      roles.forEach(role => (role.checked = false));
+
       this.setState({
         roles: roles
       });
     }
   }
 
-  handleOnAddUser = () => {
-    console.log('First Name:', this.state.firstName);
-    console.log('Last Name:', this.state.lastName);
-    console.log('Email Address:', this.state.emailAddress);
-    console.log('Roles', this.state.roles);
+  handleOnSubmit = () => {
+    const {firstName, lastName, emailAddress, roles} = this.state;
+
+    this.props.onSubmit(firstName, lastName, emailAddress, roles);
+    this.props.toggleModal();
   };
 
   handleOnCheckboxClick = type => () => {
@@ -62,24 +75,33 @@ class UserModal extends Component {
   };
 
   handleOnInputChange = event => {
-    console.log(event.target);
-  };
-
-  handleOnSaveUser = () => {
-    console.log('First Name:', this.state.firstName);
-    console.log('Last Name:', this.state.lastName);
-    console.log('Email Address:', this.state.emailAddress);
-    console.log('Roles', this.state.roles);
+    switch (event.currentTarget.id) {
+      case 'firstNameInput':
+        this.setState({
+          firstName: event.currentTarget.value
+        });
+        break;
+      case 'lastNameInput':
+        this.setState({
+          lastName: event.currentTarget.value
+        });
+        break;
+      default:
+        this.setState({
+          emailAddress: event.currentTarget.value
+        });
+        break;
+    }
   };
 
   render() {
     const {firstName, lastName, emailAddress, roles} = this.state,
-      {toggleModal, type} = this.props;
+      {isOpen, toggleModal, type} = this.props;
 
     return (
       <Modal
         className="user-modal"
-        isOpen={true}
+        isOpen={isOpen}
         toggle={toggleModal}
         centered={true}
       >
@@ -146,9 +168,7 @@ class UserModal extends Component {
           <Button
             classNames={['primary-btn']}
             name={type === 'add' ? 'Add' : 'Save'}
-            onClick={
-              type === 'add' ? this.handleOnAddUser : this.handleOnSaveUser
-            }
+            onClick={this.handleOnSubmit}
           />
         </div>
       </Modal>
@@ -157,10 +177,11 @@ class UserModal extends Component {
 }
 
 UserModal.propTypes = {
-  open: PropTypes.bool,
+  isOpen: PropTypes.bool,
   onSubmit: PropTypes.func,
   toggleModal: PropTypes.func,
-  type: PropTypes.string
+  type: PropTypes.string,
+  user: PropTypes.object
 };
 
 export default UserModal;
@@ -171,72 +192,19 @@ const roles = [
     type: 'Config Admin',
     checked: false
   },
-  {name: 'Account Manager', type: 'AM', checked: false},
-  {name: 'Portfolio Manager', type: 'PM', checked: false},
-  {name: 'Premium User', type: 'Premium', checked: false}
+  {
+    name: 'Account Manager',
+    type: 'AM',
+    checked: false
+  },
+  {
+    name: 'Portfolio Manager',
+    type: 'PM',
+    checked: false
+  },
+  {
+    name: 'Premium User',
+    type: 'Premium',
+    checked: false
+  }
 ];
-
-/* <div className="row-title">Administrator Info</div>
-  <div className="row-with-2cols">
-    <InputTextBox label="First Name" placeholder="Enter first name" />
-    <InputTextBox label="Last Name" placeholder="Enter last name" />
-  </div>
-  <div className="row-with-1col">
-    <InputTextBox
-      label="Email Address"
-      placeholder="Enter email address"
-    />
-  </div>
-  <div className="row-title">Licenses</div>
-  <div className="row-with-2cols">
-    <InputTextBox
-      label="Portfolio Manager Licenses"
-      placeholder="Enter Number"
-    />
-    <InputTextBox
-      label="Account Manager Licenses"
-      placeholder="Enter Number"
-    />
-  </div>
-</div> */
-
-// import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
-
-// import AddUserModal from './addUser';
-// import EditUserModal from './editUser';
-// import EmptyComponent from '../../existing/EmptyComponent';
-
-// import './styles.scss';
-
-// class UserModal extends Component {
-//   constructor(props) {
-//     super(props);
-//   }
-
-//   render() {
-//     let Modal;
-
-//     switch (this.props.type) {
-//       case 'ADD':
-//         Modal = AddUserModal;
-//         break;
-
-//       case 'EDIT':
-//         Modal = EditUserModal;
-//         break;
-
-//       default:
-//         Modal = EmptyComponent;
-//         break;
-//     }
-
-//     return <Modal {...this.props} />;
-//   }
-// }
-
-// UserModal.propTypes = {
-//   type: PropTypes.string
-// };
-
-// export default UserModal;

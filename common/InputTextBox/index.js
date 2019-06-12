@@ -13,12 +13,13 @@ class InputTextBox extends Component {
   }
 
   render() {
-    const {classNames, label, onChange, placeholder, value} = this.props;
+    const {classNames, id, label, onChange, placeholder, value} = this.props;
 
     return (
       <div className="input-textbox-container">
         <div className="input-textbox-label">{label}</div>
         <Input
+          id={id}
           type="text"
           className={classnames('input-textbox', classNames)}
           onChange={onChange}
@@ -32,6 +33,7 @@ class InputTextBox extends Component {
 
 InputTextBox.propTypes = {
   classNames: PropTypes.array,
+  id: PropTypes.string,
   label: PropTypes.string,
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
