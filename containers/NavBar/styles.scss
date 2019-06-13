@@ -1,0 +1,14 @@
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  min-height: 979px;
+  height: 100vh;
+  background-color: #373b40;
+
+  .nav-item:last-child {
+    background-color: #0e8fc9;
+    margin-top: auto; // Push nav-item to bottom of nav-bar
+    border-bottom: none;
+  }
+}

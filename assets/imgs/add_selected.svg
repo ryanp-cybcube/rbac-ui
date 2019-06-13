@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Filters / Add / Selected</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Filters-/-Add-/-Selected" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Filters/Add">
+            <path d="M16,0.5 C7.43958638,0.5 0.5,7.43958638 0.5,16 C0.5,24.5604136 7.43958638,31.5 16,31.5 C24.5604136,31.5 31.5,24.5604136 31.5,16 C31.5,7.43958638 24.5604136,0.5 16,0.5 Z" id="BG" stroke="#00A9E0" fill="#00A9E0"></path>
+            <path d="M17,15 L22,15 L22,17 L17,17 L17,22 L15,22 L15,17 L10,17 L10,15 L15,15 L15,10 L17,10 L17,15 Z" id="Rectangle" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

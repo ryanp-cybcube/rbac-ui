@@ -1,0 +1,18 @@
+.nav-item {
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: center;
+  color: #cfcfcf;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+  }
+}
+
+.nav-item-active {
+  background-color: #0e8fc9;
+}
